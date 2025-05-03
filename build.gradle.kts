@@ -1,7 +1,5 @@
 plugins {
-	java
-	id("org.springframework.boot") version "3.4.5"
-	id("io.spring.dependency-management") version "1.1.7"
+	`java-library`
 }
 
 group = "com.neighbor.eventmosaic.library"
@@ -18,11 +16,8 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-}
 
-tasks.withType<Test> {
-	useJUnitPlatform()
+	// Lombok
+	compileOnly(libs.lombok)
+	annotationProcessor(libs.lombok)
 }
